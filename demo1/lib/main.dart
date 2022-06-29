@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'demos/main_holiday_page.dart';
+import 'demos/pages/main_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      home: const MainHolidayPage(),
+      home: const MyWidget(),
     );
   }
 }

@@ -13,23 +13,34 @@ class HolidayPage extends StatefulWidget {
 }
 
 class _HolidayPageState extends State<HolidayPage> {
-  PageController pageController = PageController(viewportFraction: 1);
+  PageController pageController = PageController(viewportFraction: 0.84);
   var _currPageValue = 0.0;
+
+  List pages = [
+    const AssetImage("assets/images/jpg/66.jpg"),
+    const AssetImage("assets/images/png/2765859545_preview_Screenshot_1.png"),
+    const AssetImage("assets/images/png/1141570.png"),
+    const AssetImage("assets/images/jpg/peakpx.jpg"),
+    const AssetImage("assets/images/jpg/5lpif5izwoo41.jpg"),
+  ];
 
   @override
   void initState() {
     super.initState();
     pageController.addListener(() {
+      //addListener resmin hareketi değişip değişmediğini kontrol eder
       setState(() {
         _currPageValue = pageController.page!;
       });
     });
   }
 
+  /*
   @override
   void dispose() {
     pageController.dispose();
   }
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -84,9 +95,7 @@ class _HolidayPageState extends State<HolidayPage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white38,
-                        image: const DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage("assets/images/png/2765859545_preview_Screenshot_1.png"))),
+                        image: DecorationImage(fit: BoxFit.cover, image: pages[index])),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,8 +126,7 @@ class _HolidayPageState extends State<HolidayPage> {
           margin: const EdgeInsets.only(left: 5, right: 5),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            //color: index.isEven ? const Color(0xFF69c5df) : Colors.red,
-            image: const DecorationImage(fit: BoxFit.cover, image: AssetImage("assets/images/jpg/66.jpg")),
+            image: DecorationImage(fit: BoxFit.cover, image: pages[index]),
           ),
         ),
         Align(

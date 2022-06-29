@@ -3,7 +3,8 @@ import 'package:demo1/product/widgets/big_text_widget.dart';
 import 'package:demo1/product/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../product/widgets/small_text_widget.dart';
+import '../../product/widgets/main_app_search_widget.dart';
+import '../../product/widgets/small_text_widget.dart';
 
 import 'holiday_page.dart';
 
@@ -59,52 +60,17 @@ class _MainHolidayPageState extends State<MainHolidayPage> {
                   width: 45,
                   height: 45,
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: AppColors.iconBackground),
-                  child: IconButton(onPressed: () {}, icon: const Icon(Icons.search, size: 30)),
+                  child: IconButton(
+                      onPressed: () {
+                        showSearch(context: context, delegate: MySearchDelegate());
+                      },
+                      icon: const Icon(Icons.search, size: 30)),
                 )
               ],
             ),
           ),
           const Expanded(child: SingleChildScrollView(child: HolidayPage())),
         ],
-      ),
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          indicatorColor: const Color(0xff85F4FF),
-          labelTextStyle: MaterialStateProperty.all(const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
-        ),
-        child: NavigationBar(
-          height: 70,
-          selectedIndex: currentIndex,
-          animationDuration: const Duration(seconds: 1),
-          labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-          onDestinationSelected: (int newIndex) {
-            setState(() {
-              currentIndex = newIndex;
-            });
-          },
-          destinations: const [
-            NavigationDestination(
-              selectedIcon: Icon(Icons.home),
-              icon: Icon(Icons.home_outlined),
-              label: LanguageItems.home,
-            ),
-            NavigationDestination(
-              selectedIcon: Icon(Icons.flag),
-              icon: Icon(Icons.flag_outlined),
-              label: LanguageItems.eco,
-            ),
-            NavigationDestination(
-              selectedIcon: Icon(Icons.person),
-              icon: Icon(Icons.person_outlined),
-              label: LanguageItems.person,
-            ),
-            NavigationDestination(
-              selectedIcon: Icon(Icons.settings),
-              icon: Icon(Icons.settings_outlined),
-              label: LanguageItems.video,
-            ),
-          ],
-        ),
       ),
     );
   }
