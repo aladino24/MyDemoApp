@@ -1,0 +1,43 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Blue Lock",
+      "description": "Konusu futbol olan bir animedir",
+      
+      "stars": 4,
+      "img": "assets/images/jpg/66.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Demon Slayer",
+      "description": "İblisleri Ele Alır",
+      "stars": 5,
+      "img": "assets/images/png/2765859545_preview_Screenshot_1.png"
+      
+    },
+    {
+      "id": 3,
+      "name": "Creole Rice Side Dish Recipe",
+      
+      "stars": 4,
+      "img": "assets/images/png/1141570.png"
+      
+    },
+    {
+      "id": 4,
+      "name": "Cuban Fufu",
+      
+      "stars": 5,
+      "img": "assets/images/jpg/peakpx.jpg"
+      
+    },
+    {
+      "id": 5,
+      "name": "Chicken biriani",
+      "stars": 4,
+      "img": "assets/images/jpg/5lpif5izwoo41.jpg"
+      
+    }
+  ]
+}

@@ -1,7 +1,9 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:demo1/product/colors.dart';
+import 'package:demo1/product/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
+
+import '../utils/colors.dart';
 
 class BigText extends StatelessWidget {
   final Color color;

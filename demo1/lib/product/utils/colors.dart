@@ -5,4 +5,5 @@ class AppColors {
   static const Color textColor = Color(0xff99A1B8);
   static const Color iconBackground = Color(0xff20ACCB);
   static const Color fireIconColor = Color(0xffDA5A2F);
+  static const Color mainBackground = Color(0xffFCFAF8);
 }
