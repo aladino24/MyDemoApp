@@ -1,25 +1,25 @@
-import 'package:demo1/demos/pages/password_text_field.dart';
 import 'package:flutter/material.dart';
 
-import '../../product/language_items.dart/language_items.dart';
-import '../../product/widgets/big_text_widget.dart';
-import '../../product/widgets/navigation_destination_widget.dart';
+import '../../../product/language_items.dart/language_items.dart';
+import '../../../product/widgets/big_text_widget.dart';
+import '../../../product/widgets/navigation_destination_widget.dart';
+import '../randompage/my_collections.demos.dart';
+import '../randompage/tabbar_advance.dart';
 import 'main_holiday_page.dart';
-import 'my_collections.demos.dart';
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
 
   List screens = [
     const MainHolidayPage(),
-    const PasswordTextField(),
+    const TabAdvanceLearn(),
     const MyCollectionsDemos(),
     Center(child: BigText(text: 'Settings')),
   ];

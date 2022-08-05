@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../colors.dart';
+import '../utils/colors.dart';
 
 // ignore: must_be_immutable
 class SmallTextWidget extends StatelessWidget {

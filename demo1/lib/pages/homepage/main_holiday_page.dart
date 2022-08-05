@@ -1,10 +1,10 @@
 import 'package:demo1/product/language_items.dart/language_items.dart';
 import 'package:demo1/product/widgets/big_text_widget.dart';
-import 'package:demo1/product/colors.dart';
+import 'package:demo1/product/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../product/widgets/main_app_search_widget.dart';
-import '../../product/widgets/small_text_widget.dart';
+import '../../../product/widgets/main_app_search_widget.dart';
+import '../../../product/widgets/small_text_widget.dart';
 
 import 'holiday_page.dart';
 
@@ -27,7 +27,7 @@ class _MainHolidayPageState extends State<MainHolidayPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffFCFAF8),
+      backgroundColor: AppColors.mainBackground,
       body: Column(
         children: [
           Container(
@@ -57,9 +57,9 @@ class _MainHolidayPageState extends State<MainHolidayPage> {
                   ],
                 ),
                 Container(
-                  width: 45,
-                  height: 45,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: AppColors.iconBackground),
+                  width: 55,
+                  height: 55,
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
                   child: IconButton(
                       onPressed: () {
                         showSearch(context: context, delegate: MySearchDelegate());

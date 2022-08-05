@@ -1,0 +1,1 @@
+// boyutları girmek için kullanırsın

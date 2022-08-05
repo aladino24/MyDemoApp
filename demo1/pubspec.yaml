@@ -37,6 +37,12 @@ dependencies:
   dots_indicator: ^2.1.0
   dimension: ^0.1.6
 
+  #Service
+  http: ^0.13.4
+  dio: ^4.0.4
+  #Getx
+  get: ^4.6.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -63,6 +69,7 @@ flutter:
   assets:
     - assets/images/jpg/
     - assets/images/png/
+    - assets/server.json
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

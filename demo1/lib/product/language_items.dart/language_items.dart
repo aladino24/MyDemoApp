@@ -4,5 +4,5 @@ class LanguageItems {
   static const person = 'person';
   static const settings = 'settings';
   static const oneriler = 'Öneriler';
-  static const homeTitle = 'Anime Dünyası';
+  static const homeTitle = 'CyfMan';
 }

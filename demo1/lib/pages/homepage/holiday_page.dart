@@ -1,9 +1,13 @@
-import 'package:demo1/product/colors.dart';
+import 'package:demo1/controllers/popular_product_controller.dart';
+import 'package:demo1/product/utils/colors.dart';
 import 'package:demo1/product/language_items.dart/language_items.dart';
 import 'package:demo1/product/widgets/big_text_widget.dart';
 import 'package:demo1/product/widgets/small_text_widget.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:get/route_manager.dart';
+import '../../../routes/route_helper.dart';
 
 class HolidayPage extends StatefulWidget {
   const HolidayPage({Key? key}) : super(key: key);
@@ -28,7 +32,7 @@ class _HolidayPageState extends State<HolidayPage> {
   void initState() {
     super.initState();
     pageController.addListener(() {
-      //addListener resmin hareketi değişip değişmediğini kontrol eder
+      //addListener resmin hareket ettirildiği durumda devreye girer
       setState(() {
         _currPageValue = pageController.page!;
       });
@@ -46,18 +50,22 @@ class _HolidayPageState extends State<HolidayPage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          color: Colors.transparent,
-          height: 250,
-          width: 370,
-          child: PageView.builder(
-            controller: pageController,
-            itemCount: 5,
-            itemBuilder: ((context, index) {
-              return _buildPageItem(index);
-            }),
-          ),
-        ),
+        GetBuilder<PopularProductController>(builder: (popularProducts) {
+          return Container(
+            color: Colors.transparent,
+            height: 250,
+            width: 370,
+            //Navigator.push(context, MaterialPageRoute(builder: ((context) => const MyCollectionsDemos())));
+            //Get.toNamed(RouteHelper.getPopularManga(index));
+            child: PageView.builder(
+              controller: pageController,
+              itemCount: pages.length,
+              itemBuilder: ((context, index) {
+                return _buildPageItem(index);
+              }),
+            ),
+          );
+        }),
         DotsIndicator(
           dotsCount: 5,
           position: _currPageValue,
@@ -85,31 +93,36 @@ class _HolidayPageState extends State<HolidayPage> {
             shrinkWrap: true,
             itemCount: 5,
             itemBuilder: (context, index) {
-              return Container(
-                margin: const EdgeInsets.only(left: 10, right: 10, bottom: 50),
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
-                child: Row(children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white38,
-                        image: DecorationImage(fit: BoxFit.cover, image: pages[index])),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      BigText(
-                        text: 'Demon Slayer',
-                        fontWeight: FontWeight.w200,
-                      ),
-                      SmallTextWidget(
-                        text: 'İblisleri konu alır',
-                      ),
-                    ],
-                  ),
-                ]),
+              return GestureDetector(
+                onTap: () {
+                  Get.toNamed(RouteHelper.getOnerilerManga(index));
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(left: 10, right: 10, bottom: 50),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
+                  child: Row(children: [
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white38,
+                          image: DecorationImage(fit: BoxFit.cover, image: pages[index])),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        BigText(
+                          text: 'Demon Slayer',
+                          fontWeight: FontWeight.w200,
+                        ),
+                        SmallTextWidget(
+                          text: 'İblisleri konu alır',
+                        ),
+                      ],
+                    ),
+                  ]),
+                ),
               );
             },
           ),
